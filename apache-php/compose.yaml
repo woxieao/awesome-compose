@@ -1,9 +1,7 @@
+
+
 services:
   web:
-    build:
-      context: app
-      target: builder
+    image: 'harbor.8ha8d490.ecs.wezhan.cn/wezhan/php-sample:latest'
     ports: 
-      - '80:80'
-    volumes:
-      - ./app:/var/www/html/
+      - '6001:80'

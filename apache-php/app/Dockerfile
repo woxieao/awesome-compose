@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.4
 
-FROM --platform=$BUILDPLATFORM php:8.0.9-apache as builder
+FROM --platform=linux/amd64 php:8.0.9-apache as builder
 
 CMD ["apache2-foreground"]
 
@@ -18,5 +18,5 @@ usermod -aG docker vscode
 EOF
 # install Docker tools (cli, buildx, compose)
 COPY --from=gloursdocker/docker / /
-
+COPY index.php /var/www/html/
 CMD ["apache2-foreground"]
